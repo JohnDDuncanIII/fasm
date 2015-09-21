@@ -92,7 +92,9 @@ open:
 	stos	byte [edi]
 	or	al,al
 	jnz	copy_path
-	cmp	edi,buffer+1000h
+	mov     eax,buffer
+	add     eax,1000h
+	cmp     edi,eax 
 	ja	out_of_memory
 	ret
 create:
