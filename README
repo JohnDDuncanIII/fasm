@@ -1,0 +1,10 @@
+# fasm-osx
+flat assembler - the open source assembly language compiler for x86 and x86-64 processors 
+
+This repository contains a flat assembler version that will run on Macintosh OS X 10.6-10.11. 
+
+the 32-bit `fasm' binary (version 1.70.02) included was used to assemble the `fasm_new_32' binary (version 1.71.39). Version 1.71.39 has been tested and succesfully assembled the 64-bit `rwasa' web-server fomr the [HeavyThing library](https://2ton.com.au/HeavyThing/) on OS X 10.11 El-Capitan. 
+
+# Inspired/taken from:
+http://board.flatassembler.net/topic.php?t=13413
+http://board.flatassembler.net/topic.php?t=9954

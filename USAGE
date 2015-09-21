@@ -1,0 +1,25 @@
+COMPILE OSX 32bits "Hello World"
+--------------------------------
+
+./fasm hello32.asm hello32.o
+./objconv -fmacho32 -nu hello32.o hello32_m.o
+ld -arch i386 -macosx_version_min 10.6 -o hello32 hello32_m.o /usr/lib/crt1.o /usr/lib/libc.dylib
+file hello32
+./hello32
+
+COMPILE OSX 64bits "Hello World"
+--------------------------------
+
+./fasm hello64.asm hello64.o
+./objconv -fmacho64 -nu hello64.o hello64_m.o
+ld -arch x86_64 -macosx_version_min 10.6 -o hello64 hello64_m.o /usr/lib/crt1.o /usr/lib/libc.dylib
+file hello64
+./hello64
+
+COMPILE fasm 
+--------------------------------
+./fasm fasm_src/source/libc/fasm.asm fasm_new_32.o
+./objconv -fmac -nu fasm_new_32.o fasm_new_32_m.o
+ld -arch i386 -macosx_version_min 10.6 -o fasm_32_new fasm_new_32_m.o /usr/lib/crt1.o /usr/lib/libc.dylib
+file fast
+./fasm
