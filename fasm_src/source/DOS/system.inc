@@ -1,6 +1,6 @@
 
 ; flat assembler interface for DOS
-; Copyright (c) 1999-2015, Tomasz Grysztar.
+; Copyright (c) 1999-2016, Tomasz Grysztar.
 ; All rights reserved.
 
 go32:
@@ -442,7 +442,7 @@ assembler_error:
 	mov	ebx,[current_line]
 	test	ebx,ebx
 	jz	display_error_message
-	push	dword 0
+	pushd	0
       get_error_lines:
 	mov	eax,[ebx]
 	cmp	byte [eax],0

@@ -1,6 +1,6 @@
 
 ; flat assembler interface for Linux
-; Copyright (c) 1999-2015, Tomasz Grysztar.
+; Copyright (c) 1999-2016, Tomasz Grysztar.
 ; All rights reserved.
 
 	format	ELF executable 3
@@ -15,10 +15,9 @@ start:
 	call	display_string
 
 	mov	[command_line],esp
-	pop	eax
-	lea	esp,[esp+eax*4]
-	pop	eax
-	pop	[environment]
+	mov	ecx,[esp]
+	mov	ebx,[esp+4+ecx*4+4]
+	mov	[environment],ebx
 	call	get_params
 	jc	information
 
@@ -279,7 +278,7 @@ include 'system.inc'
 
 include '..\version.inc'
 
-_copyright db 'Copyright (c) 1999-2015, Tomasz Grysztar',0xA,0
+_copyright db 'Copyright (c) 1999-2016, Tomasz Grysztar',0xA,0
 
 _logo db 'flat assembler  version ',VERSION_STRING,0
 _usage db 0xA

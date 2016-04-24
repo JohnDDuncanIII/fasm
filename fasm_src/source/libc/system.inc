@@ -1,6 +1,6 @@
 
 ; flat assembler interface for Unix/libc
-; Copyright (c) 1999-2015, Tomasz Grysztar.
+; Copyright (c) 1999-2016, Tomasz Grysztar.
 ; All rights reserved.
 
 extrn malloc
@@ -92,9 +92,9 @@ open:
 	stos	byte [edi]
 	or	al,al
 	jnz	copy_path
-	mov     eax,buffer
-	add     eax,1000h
-	cmp     edi,eax 
+	mov eax,buffer
+	add eax,1000h
+	cmp edi,eax 
 	ja	out_of_memory
 	ret
 create:

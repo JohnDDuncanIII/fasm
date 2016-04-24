@@ -21,5 +21,5 @@ COMPILE fasm
 ./fasm fasm_src/source/libc/fasm.asm fasm_new_32.o
 ./objconv -fmac -nu fasm_new_32.o fasm_new_32_m.o
 ld -arch i386 -macosx_version_min 10.6 -o fasm_32_new fasm_new_32_m.o /usr/lib/crt1.o /usr/lib/libc.dylib
-file fast
+file fasm
 ./fasm

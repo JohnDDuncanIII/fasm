@@ -2,6 +2,72 @@
 Visit http://flatassembler.net/ for more information.
 
 
+version 1.71.51 (Feb 08, 2016)
+
+[-] Corrected the signalling of "operand size not specified" error with
+    AVX instructions.
+
+
+version 1.71.50 (Jan 30, 2016)
+
+[-] Overflow error in the RIP-relative addresses has been made recoverable.
+
+
+version 1.71.49 (Dec 06, 2015)
+
+[-] Few small fixes.
+
+
+version 1.71.48 (Nov 18, 2015)
+
+[-] Fixed recently introduced bug in MOV instruction with debug register
+    as target.
+
+
+version 1.71.47 (Nov 09, 2015)
+
+[+] Added support for Intel MPX instructions.
+
+
+version 1.71.46 (Oct 31, 2015)
+
+[-] Another minor bug fixed.
+
+
+version 1.71.45 (Oct 31, 2015)
+
+[-] Few more bugs fixed in AVX encodings.
+
+
+version 1.71.44 (Oct 27, 2015)
+
+[-] Minor bug fixes.
+
+
+version 1.71.43 (Oct 26, 2015)
+
+[+] Added two missing instructions.
+
+[-] Fixed few minor bugs in AVX-512 encodings.
+
+
+version 1.71.42 (Oct 22, 2015)
+
+[-] Fixed a couple of regression bugs.
+
+
+version 1.71.41 (Oct 21, 2015)
+
+[-] Fixed a bug that caused the "word" operator inside square brackets to
+    have no effect.
+
+
+version 1.71.40 (Oct 19, 2015)
+
+[+] Added support for Intel AVX-512, SHA, CLFLUSHOPT, CLWB and
+    PCOMMIT instruction sets.
+
+
 version 1.71.39 (Mar 11, 2015)
 
 [-] Minor bug fix.
