@@ -86,9 +86,8 @@ convert_number:
 	cmp	eax,edx
 	jae	out_of_memory
 	mov	eax,esp
-	sub	eax,100h
-	jc	stack_overflow
-	cmp	eax,[stack_limit]
+	sub	eax,[stack_limit]
+	cmp	eax,100h
 	jb	stack_overflow
 	cmp	byte [esi],'('
 	je	expression_value
@@ -248,6 +247,8 @@ get_number:
 	je	get_dec_number
 	cmp	al,'o'
 	je	get_oct_number
+	cmp	al,'q'
+	je	get_oct_number
 	cmp	al,'H'
 	je	get_hex_number
 	cmp	al,'B'
@@ -255,6 +256,8 @@ get_number:
 	cmp	al,'D'
 	je	get_dec_number
 	cmp	al,'O'
+	je	get_oct_number
+	cmp	al,'Q'
 	je	get_oct_number
 	inc	esi
       get_dec_number:
@@ -264,6 +267,8 @@ get_number:
 	cmp	esi,ebx
 	ja	number_ok
 	cmp	byte [esi],27h
+	je	next_dec_digit
+	cmp	byte [esi],'_'
 	je	next_dec_digit
 	xor	edx,edx
 	mov	eax,[edi]
@@ -303,6 +308,8 @@ get_number:
 	lods	byte [esi]
 	cmp	al,27h
 	je	bad_number
+	cmp	al,'_'
+	je	bad_number
 	sub	al,30h
 	jc	bad_number
 	cmp	al,9
@@ -327,6 +334,8 @@ get_number:
 	jb	number_ok
 	movzx	eax,byte [esi]
 	cmp	al,27h
+	je	bin_digit_skip
+	cmp	al,'_'
 	je	bin_digit_skip
 	sub	al,30h
 	cmp	al,1
@@ -365,6 +374,8 @@ get_number:
 	jb	number_ok
 	movzx	eax,byte [esi]
 	cmp	al,27h
+	je	hex_digit_skip
+	cmp	al,'_'
 	je	hex_digit_skip
 	cmp	al,'x'
 	je	hex_number_ok
@@ -414,6 +425,8 @@ get_number:
 	jb	number_ok
 	movzx	eax,byte [esi]
 	cmp	al,27h
+	je	oct_digit_skip
+	cmp	al,'_'
 	je	oct_digit_skip
 	sub	al,30h
 	cmp	al,7
